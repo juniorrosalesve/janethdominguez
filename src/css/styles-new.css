@@ -670,14 +670,6 @@ video {
   margin-top: 1rem;
 }
 
-.ml-5 {
-  margin-left: 1.25rem;
-}
-
-.mr-5 {
-  margin-right: 1.25rem;
-}
-
 .block {
   display: block;
 }
@@ -913,20 +905,12 @@ video {
   text-transform: uppercase;
 }
 
-.tracking-normal {
-  letter-spacing: 0em;
-}
-
-.tracking-wide {
-  letter-spacing: 0.025em;
+.tracking-wider {
+  letter-spacing: 0.05em;
 }
 
 .tracking-widest {
   letter-spacing: 0.1em;
-}
-
-.tracking-wider {
-  letter-spacing: 0.05em;
 }
 
 .text-gray-300 {
@@ -990,24 +974,12 @@ video {
     order: 9999;
   }
 
-  .md\:ml-5 {
-    margin-left: 1.25rem;
-  }
-
-  .md\:mr-5 {
-    margin-right: 1.25rem;
-  }
-
-  .md\:-ml-5 {
-    margin-left: -1.25rem;
+  .md\:ml-10 {
+    margin-left: 2.5rem;
   }
 
   .md\:mr-10 {
     margin-right: 2.5rem;
-  }
-
-  .md\:ml-10 {
-    margin-left: 2.5rem;
   }
 
   .md\:block {
