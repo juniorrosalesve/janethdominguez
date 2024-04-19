@@ -7,9 +7,12 @@
 
     <meta name="description" content="Explore abstract art with Janeth Dominguez. Inspired by her Mexican heritage, she creates unique pieces balancing chaos and order. Join her artistic journey!">
 
-    <link rel="stylesheet" href="./css/styles-new.css">
-    <link rel="stylesheet" href="./css/fonts2.css">
-    <link rel="stylesheet" href="./css/extra.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <link rel="stylesheet" href="{{ asset('css/fonts2.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/extra.css') }}">
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
@@ -18,7 +21,7 @@
     <nav class="bg-[#0b0b0b] flex items-center justify-between p-4 shadow-md" id="m-navbar">
         <div class="flex items-center">
             <a href="#home">
-                <img src="./css/images/logo.jpg" id="logo" alt="Logo" class="w-[250px]">
+                <img src="{{ asset('css/images/logo.jpg') }}" id="logo" alt="Logo" class="w-[250px]">
             </a>
             <span class="text-xl caldea-italic tracking-widest hidden md:block">Janeth Dominguez Art</span>
         </div>
@@ -35,7 +38,7 @@
     </nav>
     <!-- Header -->
     <section id="home">
-        <header class="h-screen bg-cover bg-center" style="background-image: url('./css/images/bg-header.jpg')">
+        <header class="h-screen bg-cover bg-center" style="background-image: url('{{ asset('css/images/bg-header.jpg') }}')">
             <div class="flex items-center justify-center h-full">
                 <h1 data-aos="zoom-in" data-aos-duration="1500" class="text-center md:text-left text-6xl font-bold text-shadow-lg -mt-20 caldea-bold uppercase" style="letter-spacing: 10px;">
                     Art through my eyes
@@ -43,13 +46,14 @@
             </div>
         </header>
     </section>
+
     <!-- Section 1: About -->
     <section id="about" class="py-8 px-4">
         <h2 class="text-4xl font-bold text-center my-10 caldea-bold-italic uppercase" data-aos="zoom-right">About me</h2>
         <!-- Photo 1: left, Text 1: right -->
         <div class="flex flex-wrap md:flex-nowrap items-center justify-center mb-4">
             <div class="w-full md:w-1/2 p-2">
-                <img src="./css/images/about1.jpg" alt="About 1" class="w-full md:w-[50%] mx-auto align-top rounded-lg shadow-lg">
+                <img src="{{ asset('css/images/about1.jpg') }}" alt="About 1" class="w-full md:w-[50%] mx-auto align-top rounded-lg shadow-lg">
             </div>
             <div class="w-full md:w-1/2 p-2 md:mr-10" data-aos="fade-right">
                 <!-- <h1 class="text-2xl tracking-wider play-medium-italic mb-4">Me</h1> -->
@@ -79,13 +83,13 @@
                 </p>
             </div>
             <div class="w-full md:w-1/2 p-2 order-first md:order-last">
-                <img src="./css/images/about2.jpg" alt="About 2" class="w-full md:w-[50%] mx-auto align-top rounded-lg shadow-lg">
+                <img src="{{ asset('css/images/about2.jpg') }}" alt="About 2" class="w-full md:w-[50%] mx-auto align-top rounded-lg shadow-lg">
             </div>
         </div>
         <!-- Photo 3: left, Text 3: right -->
         <div class="flex flex-wrap md:flex-nowrap items-center justify-center mb-4">
             <div class="w-full md:w-1/2 p-2">
-                <img src="./css/images/about3x.jpg" alt="About 3" class="w-full md:w-[50%] mx-auto align-top rounded-lg shadow-lg">
+                <img src="{{ asset('css/images/about3x.jpg') }}" alt="About 3" class="w-full md:w-[50%] mx-auto align-top rounded-lg shadow-lg">
             </div>
             <div class="w-full md:w-1/2 p-2 md:mr-10" data-aos="fade-right">
                 <h1 class="text-2xl caldea-italic mb-4">What sets you apart from other artists?</h1>
@@ -101,51 +105,21 @@
     <section id="gallery" class="py-8 px-4 bg-[#C0C0C0]">
         <h2 class="text-4xl font-bold text-center text-white my-10 caldea-bold-italic uppercase" data-aos="fade-in">Gallery</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4">
-            <div class="relative">
-                <img src="./css/images/galeria/1.jpg" alt="Gallery 1" class="w-full h-auto rounded-lg shadow-lg">
-                <div class="gallery-info absolute bottom-0 left-0 right-0 p-2 bg-gray-900 bg-opacity-80 rounded-b-lg">
-                    <h3 class="text-xl font-bold text-white caldea-regular">Título de la obra 1</h3>
-                    <p class="text-sm text-gray-300 info caldea-regular">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus facilis excepturi veritatis nam similique quod sed recusandae itaque magnam error modi ab, laudantium suscipit earum expedita nobis esse a at!</p>
+            @foreach ($productos as $item)
+                <div class="relative">
+                    <!-- Añadir al carrito SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" onclick="openItemCart({{ $item }})" viewBox="0 0 576 512" class="h-6 w-6 text-white cursor-pointer" style="position:absolute;top:0;right:0;margin-right:10px;margin-top:10px;"><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
+                    <img src="{{ \Storage::url('productos/'.$item->rutaImagen) }}" alt="{{ $item->nombre }}" class="w-full h-auto rounded-lg shadow-lg">
+                    <div class="gallery-info absolute bottom-0 left-0 right-0 p-2 bg-gray-900 bg-opacity-80 rounded-b-lg">
+                        <h3 class="text-xl font-bold text-white caldea-regular">{{ $item->nombre }}</h3>
+                        <p class="text-sm text-gray-300 info caldea-regular">{{ $item->info }}</p>
+                    </div>
                 </div>
-            </div>
-            <div class="relative">
-                <img src="./css/images/galeria/2.jpg" alt="Gallery 2" class="w-full h-auto rounded-lg shadow-lg">
-                <div class="gallery-info absolute bottom-0 left-0 right-0 p-2 bg-gray-900 bg-opacity-80 rounded-b-lg">
-                    <h3 class="text-xl font-bold text-white caldea-regular">Título de la obra 2</h3>
-                    <p class="text-sm text-gray-300 info caldea-regular">Descripción de la obra 2</p>
-                </div>
-            </div>
-            <div class="relative">
-                <img src="./css/images/galeria/3.jpg" alt="Gallery 3" class="w-full h-auto rounded-lg shadow-lg">
-                <div class="gallery-info absolute bottom-0 left-0 right-0 p-2 bg-gray-900 bg-opacity-80 rounded-b-lg">
-                    <h3 class="text-xl font-bold text-white caldea-regular">Título de la obra 3</h3>
-                    <p class="text-sm text-gray-300 info caldea-regular">Descripción de la obra 3</p>
-                </div>
-            </div>
-            <div class="relative">
-                <img src="./css/images/galeria/4.jpg" alt="Gallery 4" class="w-full h-auto rounded-lg shadow-lg">
-                <div class="gallery-info absolute bottom-0 left-0 right-0 p-2 bg-gray-900 bg-opacity-80 rounded-b-lg">
-                    <h3 class="text-xl font-bold text-white caldea-regular">Título de la obra 4</h3>
-                    <p class="text-sm text-gray-300 info caldea-regular">Descripción de la obra 4</p>
-                </div>
-            </div>
-            <div class="relative">
-                <img src="./css/images/galeria/5.jpg" alt="Gallery 5" class="w-full h-auto rounded-lg shadow-lg">
-                <div class="gallery-info absolute bottom-0 left-0 right-0 p-2 bg-gray-900 bg-opacity-80 rounded-b-lg">
-                    <h3 class="text-xl font-bold text-white caldea-regular">Título de la obra 5</h3>
-                    <p class="text-sm text-gray-300 info caldea-regular">Descripción de la obra 5</p>
-                </div>
-            </div>
-            <div class="relative">
-                <img src="./css/images/galeria/6.jpg" alt="Gallery 6" class="w-full h-auto rounded-lg shadow-lg">
-                <div class="gallery-info absolute bottom-0 left-0 right-0 p-2 bg-gray-900 bg-opacity-80 rounded-b-lg">
-                    <h3 class="text-xl font-bold text-white caldea-regular">Título de la obra 6</h3>
-                    <p class="text-sm text-gray-300 info caldea-regular">Descripción de la obra 6</p>
-                </div>
-            </div>
+            @endforeach
         </div>
         <p class="text-lg text-center caldea-italic mt-12 mb-8 underline cursor-pointer">Store</p>
     </section>
+
     <!-- Section 3: Contact -->
     <section id="contact" class="py-20 px-4">
         <h2 class="text-4xl text-center mb-4 caldea-bold-italic" data-aos="zoom-in">Contact Us</h2>
@@ -188,7 +162,8 @@
             </form>
         </div>
     </section>
-      <!-- Footer -->
+
+    <!-- Footer -->
     <footer class="bg-[#808080] p-4">
         <div class="flex flex-wrap justify-between items-center">
             <div class="flex space-x-4">
@@ -212,10 +187,50 @@
         </div>
     </footer>
 
+    <!-- Modal -->
+    <div id="myModal" class="hidden fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <!-- Background overlay, show/hide based on modal state. -->
+            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+            <!-- This element is to trick the browser into centering the modal contents. -->
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">​</span>
+            <!-- Modal Panel -->
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:w-[70%]">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                            <div class="mt-2">
+                                <div class="grid grid-cols-2">
+                                    <div>
+                                        <img src="{{ asset('css/images/galeria/1.jpg') }}" id="x_item_image" alt="..." class="w-full h-auto rounded-lg shadow-lg">
+                                    </div>
+                                    <div class="text-black pl-4">
+                                        <h1 class="text-4xl mb-3 caldea-regular" id="x_item_name">Art title</h1>
+                                        <p class="caldea-italic" id="x_item_info">...</p>
+                                        <p class="caldea-bold text-2xl mt-7" id="x_item_price">...</p>
+                                        <button type="button" class="mt-2 text-gray-900 bg-[#F7BE38] hover:bg-[#F7BE38]/90 focus:ring-4 focus:outline-none focus:ring-[#F7BE38]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#F7BE38]/50 me-2 mb-2">
+                                            <svg class="w-4 h-4 me-2 -ms-1" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="paypal" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M111.4 295.9c-3.5 19.2-17.4 108.7-21.5 134-.3 1.8-1 2.5-3 2.5H12.3c-7.6 0-13.1-6.6-12.1-13.9L58.8 46.6c1.5-9.6 10.1-16.9 20-16.9 152.3 0 165.1-3.7 204 11.4 60.1 23.3 65.6 79.5 44 140.3-21.5 62.6-72.5 89.5-140.1 90.3-43.4 .7-69.5-7-75.3 24.2zM357.1 152c-1.8-1.3-2.5-1.8-3 1.3-2 11.4-5.1 22.5-8.8 33.6-39.9 113.8-150.5 103.9-204.5 103.9-6.1 0-10.1 3.3-10.9 9.4-22.6 140.4-27.1 169.7-27.1 169.7-1 7.1 3.5 12.9 10.6 12.9h63.5c8.6 0 15.7-6.3 17.4-14.9 .7-5.4-1.1 6.1 14.4-91.3 4.6-22 14.3-19.7 29.3-19.7 71 0 126.4-28.8 142.9-112.3 6.5-34.8 4.6-71.4-23.8-92.6z"></path></svg>
+                                            Check out with PayPal
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button type="button" id="closeModalButton" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm">
+                        X
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="./js/sticky.js"></script>
-    <script src="./js/sections.js"></script>
+    <script src="{{ asset('js/sticky.js') }}"></script>
+    <script src="{{ asset('js/sections.js') }}"></script>
     <script>
         $("#m-navbar").sticky();
         AOS.init({
@@ -254,6 +269,37 @@
             // Hide the menu button and show the menu
             menuButton.style.display = 'none';
             menu.style.display = 'flex';
+        }
+
+        // Obtén el modal y el botón
+        var modal           =   document.getElementById('myModal');
+        var closeButton     =   document.getElementById('closeModalButton');
+        var xItemName       =   document.getElementById('x_item_name');
+        var xItemImagen     =   document.getElementById('x_item_image');
+        var xItemInfo       =   document.getElementById('x_item_info');
+        var xItemPrice      =   document.getElementById('x_item_price');
+
+        // Cuando el usuario haga clic en el botón, abre la modal
+        // btn.onclick = function() {
+        //     modal.classList.remove('hidden');
+        // }
+        closeButton.onclick = function() {
+            modal.classList.add('hidden');
+        }
+
+        // Cuando el usuario haga clic en cualquier lugar fuera de la modal, ciérrala
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.classList.add('hidden');
+            }
+        }
+
+        function openItemCart(item) {
+            xItemName.innerHTML     =   item.nombre;
+            xItemInfo.innerHTML     =   item.info;
+            xItemPrice.innerHTML    =   '$'+item.precio;
+            xItemImagen.src     =   '{{ Storage::url('productos/') }}'+item.rutaImagen;
+            modal.classList.remove('hidden');
         }
     </script>
 </body>
