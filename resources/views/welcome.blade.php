@@ -200,7 +200,7 @@
                     <div class="sm:flex sm:items-start">
                         <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                             <div class="mt-2">
-                                <div class="grid grid-cols-2">
+                                <div class="grid grid-cols-1 md:grid-cols-2">
                                     <div>
                                         <img src="{{ asset('css/images/galeria/1.jpg') }}" id="x_item_image" alt="..." class="w-full h-auto rounded-lg shadow-lg">
                                     </div>
