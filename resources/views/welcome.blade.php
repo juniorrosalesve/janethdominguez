@@ -297,7 +297,7 @@
             xItemName.innerHTML     =   item.nombre;
             xItemInfo.innerHTML     =   item.info;
             xItemPrice.innerHTML    =   '$'+item.precio;
-            xItemImagen.src     =   '{{ Storage::url('productos/') }}'+item.rutaImagen;
+            xItemImagen.src     =   '{{ \Storage::url('productos/') }}'+item.rutaImagen;
             modal.classList.remove('hidden');
         }
     </script>
