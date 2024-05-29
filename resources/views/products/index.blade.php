@@ -25,7 +25,7 @@
                                 <tr>
                                     <td>{{ $item->id }}</td>
                                     <td>
-                                        <a href="{{ Storage::url('productos/'.$item->rutaImagen) }}" target="_blank" class="underline text-lg mr-2">{{ $item->nombre }}</a>
+                                        <a href="javascript:void(0)" onclick="editModal({{ $item->id }})" class="underline text-lg mr-2">{{ $item->nombre }}</a>
                                         (<span class="cursor-pointer text-red-600" onclick="removeItem({{ $item->id }})">X</span>)
                                     </td>
                                     <td>${{ number_format($item->precio, 2, ".", ",") }}</td>
@@ -53,31 +53,35 @@
                                 <form action="{{ route('create-product') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="grid grid-cols-2 gap-8">
-                                        <div>
+                                        <div id="showImagenEdit" class="hidden">
+                                            <img src="" id="iImagen" alt="imagen" class="w-[300px]" />
+                                        </div>
+                                        <div class="my-auto">
                                             <label class="block mb-2 text-sm font-medium text-gray-900">
                                                 Name
                                             </label>
-                                            <input type="text" name="nombre" autocomplete="off" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                            <input type="text" name="nombre" id="iNombre" autocomplete="off" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                         </div>
                                         <div>
                                             <label class="block mb-2 text-sm font-medium text-gray-900">
                                                 Description
                                             </label>
-                                            <input type="text" name="info" autocomplete="off"  required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                            <input type="text" name="info" id="iInfo" autocomplete="off"  required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                         </div>
                                         <div>
                                             <label class="block mb-2 text-sm font-medium text-gray-900">
                                                 Price
                                             </label>
-                                            <input type="number" name="precio" step="0.01" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                            <input type="number" name="precio" id="iPrecio" step="0.01" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                         </div>
                                         <div>
                                             <label class="block mb-2 text-sm font-medium text-gray-900">
                                                 Image
                                             </label>
-                                            <input type="file" name="imagen" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                            <input type="file" name="imagen" id="tatata" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                         </div>
                                     </div>
+                                    <input type="hidden" name="id" id="iId" value="0">
                                     <center>
                                         <button type="submit" class="mt-10 px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
                                             Save
@@ -98,13 +102,31 @@
     </div>
     <script>
         // Obtén el modal y el botón
+        const productos     =   @json($productos);
+        
         var modal = document.getElementById('myModal');
         var btn = document.getElementById('openModalButton');
         var closeButton = document.getElementById('closeModalButton');
 
+        const iName         =   document.getElementById('iNombre');
+        const iInfo         =   document.getElementById('iInfo');
+        const iPrecio       =   document.getElementById('iPrecio');
+        const iId           =   document.getElementById('iId');
+        
+        const showImage     =   document.getElementById('showImagenEdit');  
+        const iImagen       =   document.getElementById('iImagen');
+        const eImagen       =   document.getElementById('tatata');
+
         // Cuando el usuario haga clic en el botón, abre la modal
         btn.onclick = function() {
             modal.classList.remove('hidden');
+            iName.value     =   '';
+            iInfo.value     =   '';
+            iPrecio.value   =   '';
+            iImagen.value   =   '';
+            iId.value       =   '0';
+            eImagen.required    =   true;
+            showImage.classList.add('hidden');
         }
         closeButton.onclick = function() {
             modal.classList.add('hidden');
@@ -117,6 +139,27 @@
             }
         }
 
+        function editModal(id) {
+            modal.classList.remove('hidden');
+            let producto    =   getProducto(id);
+            iName.value     =   producto.nombre;
+            iInfo.value     =   producto.info;
+            iPrecio.value   =   producto.precio;
+            showImage.classList.remove('hidden');
+            iImagen.src     =   "{{ \Storage::url('public/productos/') }}"+producto.rutaImagen;
+            eImagen.required    =   false;
+            iId.value       =   producto.id;
+        }
+        function getProducto(id) {
+            let producto    =   null;
+            for(let i = 0; i < productos.length; i++) {
+                if(productos[i].id == id) {
+                    producto    =   productos[i];
+                    break;
+                }
+            }
+            return producto;
+        }
         function removeItem(id) {
             if(confirm('Are you sure you want to remove this product?'))
                 location.href='{{ url('products/delete') }}/'+id;
