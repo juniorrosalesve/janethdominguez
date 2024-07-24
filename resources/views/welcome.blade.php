@@ -292,8 +292,6 @@
                         if(actualItemId == null)
                             return;
 
-                        console.log('Sending order creation request with:', { cart, shipping }); // Agrega este registro
-
                         const fullName = document.getElementById('fullName').value;
                         const phone = document.getElementById('phone').value;
                         const address = document.getElementById('address').value;
