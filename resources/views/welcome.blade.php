@@ -292,6 +292,8 @@
                         if(actualItemId == null)
                             return;
 
+                        console.log('Sending order creation request with:', { cart, shipping }); // Agrega este registro
+
                         const fullName = document.getElementById('fullName').value;
                         const phone = document.getElementById('phone').value;
                         const address = document.getElementById('address').value;
@@ -326,6 +328,7 @@
                         });
 
                         const orderData = await response.json();
+                        console.log('Received order creation response with:', orderData); // Agrega este registro
 
                         if (orderData.id) {
                             return orderData.id;
@@ -344,6 +347,9 @@
                 },
                 async onApprove(data, actions) {
                     try {
+                        const { orderID } = data;
+                        console.log('Sending order capture request for order ID:', orderID); 
+
                         const response = await fetch(`{{ ENV('PAYPAL_ENDPOINT') }}/api/orders/${data.orderID}/capture`, {
                             method: "POST",
                             headers: {
@@ -352,6 +358,7 @@
                         });
 
                         const orderData = await response.json();
+                        console.log('Received order capture response with:', orderData)
                         // Three cases to handle:
                         //   (1) Recoverable INSTRUMENT_DECLINED -> call actions.restart()
                         //   (2) Other non-recoverable errors -> Show a failure message
