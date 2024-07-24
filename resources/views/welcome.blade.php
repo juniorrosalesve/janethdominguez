@@ -195,13 +195,10 @@
     </footer>
 
     <!-- Modal -->
-    <div id="myModal" class="hidden fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <div id="myModal" class="hidden fixed z-10 inset-0 overflow-y-auto modal-content" aria-labelledby="modal-title" role="dialog" aria-modal="true">
         <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-            <!-- Background overlay, show/hide based on modal state. -->
             <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
-            <!-- This element is to trick the browser into centering the modal contents. -->
             <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">​</span>
-            <!-- Modal Panel -->
             <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:w-[70%]">
                 <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                     <div class="sm:flex sm:items-start">
@@ -215,20 +212,62 @@
                                         <h1 class="text-4xl mb-3 caldea-regular" id="x_item_name">Art title</h1>
                                         <p class="caldea-italic" id="x_item_info">...</p>
                                         <p class="caldea-bold text-2xl mt-7" id="x_item_price">...</p>
-                                        <button type="button" class="mt-2 text-gray-900 bg-[#F7BE38] hover:bg-[#F7BE38]/90 focus:ring-4 focus:outline-none focus:ring-[#F7BE38]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#F7BE38]/50 me-2 mb-2">
-                                            <svg class="w-4 h-4 me-2 -ms-1" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="paypal" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M111.4 295.9c-3.5 19.2-17.4 108.7-21.5 134-.3 1.8-1 2.5-3 2.5H12.3c-7.6 0-13.1-6.6-12.1-13.9L58.8 46.6c1.5-9.6 10.1-16.9 20-16.9 152.3 0 165.1-3.7 204 11.4 60.1 23.3 65.6 79.5 44 140.3-21.5 62.6-72.5 89.5-140.1 90.3-43.4 .7-69.5-7-75.3 24.2zM357.1 152c-1.8-1.3-2.5-1.8-3 1.3-2 11.4-5.1 22.5-8.8 33.6-39.9 113.8-150.5 103.9-204.5 103.9-6.1 0-10.1 3.3-10.9 9.4-22.6 140.4-27.1 169.7-27.1 169.7-1 7.1 3.5 12.9 10.6 12.9h63.5c8.6 0 15.7-6.3 17.4-14.9 .7-5.4-1.1 6.1 14.4-91.3 4.6-22 14.3-19.7 29.3-19.7 71 0 126.4-28.8 142.9-112.3 6.5-34.8 4.6-71.4-23.8-92.6z"></path></svg>
-                                            Check out with PayPal
-                                        </button>
+                                        <form class="space-y-4 p-4" method="POST" action="#">
+                                            @csrf
+                                            <h1 class="">Shipping and Buy</h1>
+                                            <div class="flex flex-wrap -mx-2 space-y-4 md:space-y-0">
+                                                <div class="w-full px-2 md:w-1/2">
+                                                    <label for="fullName" class="block text-sm font-medium text-gray-700">Full name</label>
+                                                    <input type="text" id="fullName" value="" name="fullName" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                </div>
+                                                <div class="w-full px-2 md:w-1/2">
+                                                    <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
+                                                    <input type="tel" id="phone" value="" name="phone" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <label for="address" class="block text-sm font-medium text-gray-700">Address</label>
+                                                <input type="text" id="address" value="" name="address" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                            </div>
+                                            <div class="flex flex-wrap -mx-2 space-y-4 md:space-y-0">
+                                                <div class="w-full px-2 md:w-1/2">
+                                                    <label for="city" class="block text-sm font-medium text-gray-700">City</label>
+                                                    <input type="text" id="city" value="" name="city" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                </div>
+                                                <div class="w-full px-2 md:w-1/2">
+                                                    <label for="state" class="block text-sm font-medium text-gray-700">State</label>
+                                                    <input type="text" id="state" value="" name="state" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-wrap -mx-2 space-y-4 md:space-y-0">
+                                                <div class="w-full px-2 md:w-1/2">
+                                                    <label for="zip" class="block text-sm font-medium text-gray-700">ZIP Code</label>
+                                                    <input type="text" id="zip" value="" name="zip" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                </div>
+                                                <div class="w-full px-2 md:w-1/2">
+                                                    <label for="country" class="block text-sm font-medium text-gray-700">Country</label>
+                                                    <select id="country" name="country" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                        @foreach ($countrys as $code => $name)
+                                                            <option value="{{ $code }}" @if($code == 'US') selected @endif>{{ $name }}</option>
+                                                        @endforeach  
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <p id="result-message" class="text-sm font-medium text-red-700"></p>
+                                        </form>
+                                        <div class="w-full md:w-[50%] mt-4">
+                                            <div id="paypal-button-container"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                    <button type="button" id="closeModalButton" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm">
-                        X
-                    </button>
+                    <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                        <button type="button" id="closeModalButton" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm">
+                            X
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -238,7 +277,160 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="{{ asset('js/sticky.js') }}"></script>
     <script src="{{ asset('js/sections.js') }}"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AZ_QYjxwDeH-7P74JrQVytETOemd2Cxsod3Nqkws8y5LUb039B-A8z6vITnJqcfg9w4xv_GJcp_cRTIf&components=buttons,applepay,googlepay" data-sdk-integration-source="integrationbuilder_sc"></script>
     <script>
+        let actualItemId    =   null;
+        window.paypal
+            .Buttons({
+                style: {
+                    shape: 'rect',
+                    //color:'blue', change the default color of the buttons
+                    layout: 'vertical', //default value. Can be changed to horizontal
+                },
+                async createOrder() {
+                    try {
+                        if(actualItemId == null)
+                            return;
+
+                        const fullName = document.getElementById('fullName').value;
+                        const phone = document.getElementById('phone').value;
+                        const address = document.getElementById('address').value;
+                        const city = document.getElementById('city').value;
+                        const state = document.getElementById('state').value;
+                        const zip = document.getElementById('zip').value;
+                        const country = document.getElementById('country').value;
+
+                        const shipping = {
+                            fullName,
+                            phone,
+                            address,
+                            city,
+                            state,
+                            zip,
+                            country,
+                        };
+                        const response = await fetch("{{ ENV('PAYPAL_ENDPOINT') }}/api/orders", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            // use the "body" param to optionally pass additional order information
+                            // like product ids and quantities
+                            body: JSON.stringify({
+                                cart: [{
+                                    id: actualItemId,
+                                    quantity: "1",
+                                },],
+                                shipping
+                            }),
+                        });
+
+                        const orderData = await response.json();
+
+                        if (orderData.id) {
+                            return orderData.id;
+                        } else {
+                            const errorDetail = orderData?.details?.[0];
+                            const errorMessage = errorDetail ?
+                                `${errorDetail.issue} ${errorDetail.description} (${orderData.debug_id})` :
+                                JSON.stringify(orderData);
+
+                            throw new Error(errorMessage);
+                        }
+                    } catch (error) {
+                        console.error(error);
+                        resultMessage(`Could not initiate PayPal Checkout...`);
+                    }
+                },
+                async onApprove(data, actions) {
+                    try {
+                        const response = await fetch(`{{ ENV('PAYPAL_ENDPOINT') }}/api/orders/${data.orderID}/capture`, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                        });
+
+                        const orderData = await response.json();
+                        // Three cases to handle:
+                        //   (1) Recoverable INSTRUMENT_DECLINED -> call actions.restart()
+                        //   (2) Other non-recoverable errors -> Show a failure message
+                        //   (3) Successful transaction -> Show confirmation or thank you message
+
+                        const errorDetail = orderData?.details?.[0];
+
+                        if (errorDetail?.issue === "INSTRUMENT_DECLINED") {
+                            // (1) Recoverable INSTRUMENT_DECLINED -> call actions.restart()
+                            // recoverable state, per https://developer.paypal.com/docs/checkout/standard/customize/handle-funding-failures/
+                            return actions.restart();
+                        } else if (errorDetail) {
+                            // (2) Other non-recoverable errors -> Show a failure message
+                            throw new Error(`${errorDetail.description} (${orderData.debug_id})`);
+                        } else if (!orderData.purchase_units) {
+                            throw new Error(JSON.stringify(orderData));
+                        } else {
+                            const fullName = document.getElementById('fullName').value;
+                            const phone = document.getElementById('phone').value;
+                            const address = document.getElementById('address').value;
+                            const city = document.getElementById('city').value;
+                            const state = document.getElementById('state').value;
+                            const zip = document.getElementById('zip').value;
+                            const country = document.getElementById('country').value;
+
+                            const shipping = {
+                                fullName,
+                                phone,
+                                address,
+                                city,
+                                state,
+                                zip,
+                                country,
+                            };
+                            const transaction =
+                                orderData?.purchase_units?.[0]?.payments?.captures?.[0] ||
+                                orderData?.purchase_units?.[0]?.payments?.authorizations?.[0];
+                            resultMessage(
+                                `Transaction ${transaction.status}: ${transaction.id}<br><br>See console for all available details`,
+                            );
+                            console.log(
+                                "Capture result",
+                                orderData,
+                                JSON.stringify(orderData, null, 2),
+                            );
+                            // Register the payment in the database
+                            const registerResponse = await fetch(`{{ route('register-payment') }}`, {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                },
+                                body: JSON.stringify({
+                                    transaction: transaction,
+                                    shipping: shipping,
+                                    itemId: actualItemId
+                                }),
+                            });
+                            if(registerResponse) {
+                                const responseBody = await registerResponse.json(); // Usa .text() si esperas texto
+                                console.log(responseBody);
+                            }
+                        }
+                    } catch (error) {
+                        console.error(error);
+                        resultMessage(
+                            `Sorry, your transaction could not be processed...`,
+                        );
+                    }
+                },
+            })
+            .render("#paypal-button-container");
+
+        // Example function to show a result to the user. Your site's UI library can be used instead.
+        function resultMessage(message) {
+            const container = document.querySelector("#result-message");
+            container.innerHTML = message;
+        }
+
+
         $("#m-navbar").sticky();
         AOS.init({
             once:true
@@ -279,27 +471,22 @@
         }
 
         // Obtén el modal y el botón
-        var modal           =   document.getElementById('myModal');
-        var closeButton     =   document.getElementById('closeModalButton');
+        var modal = document.getElementById('myModal');
+        var btn = document.getElementById("myBtn");
+        var closeButton = document.getElementById("closeModalButton");
         var xItemName       =   document.getElementById('x_item_name');
         var xItemImagen     =   document.getElementById('x_item_image');
         var xItemInfo       =   document.getElementById('x_item_info');
         var xItemPrice      =   document.getElementById('x_item_price');
+        var menuSite        =   document.getElementById('m-navbar');
 
-        // Cuando el usuario haga clic en el botón, abre la modal
-        // btn.onclick = function() {
-        //     modal.classList.remove('hidden');
-        // }
+
+        // Cuando el usuario haga clic en el botón de cierre, cierra el modal
         closeButton.onclick = function() {
             modal.classList.add('hidden');
+            menuSite.classList.remove('hidden');
         }
 
-        // Cuando el usuario haga clic en cualquier lugar fuera de la modal, ciérrala
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.classList.add('hidden');
-            }
-        }
 
         function openItemCart(item) {
             xItemName.innerHTML     =   item.nombre;
@@ -307,6 +494,8 @@
             xItemPrice.innerHTML    =   '$'+item.precio;
             xItemImagen.src     =   '{{ \Storage::url('productos/') }}'+item.rutaImagen;
             modal.classList.remove('hidden');
+            menuSite.classList.add('hidden');
+            actualItemId    =   item.id;
         }
     </script>
 </body>

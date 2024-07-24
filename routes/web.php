@@ -9,7 +9,6 @@ use App\Http\Controllers\ProductoController;
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
-
 Route::middleware(['auth', 'verified'])->group(function() {
     Route::prefix('sales')->group(function(){
         Route::get('/', [SalesController::class, 'index'])->name('dashboard');
@@ -29,5 +28,3 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-
-// hola

@@ -13,6 +13,21 @@ return new class extends Migration
     {
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
+            $table->string('referencia');
+            $table->string('currency_code');
+            $table->string('total');
+            $table->string('fullName');
+            $table->string('phone');
+            $table->string('email');
+            $table->string('address');
+            $table->string('city');
+            $table->string('state');
+            $table->string('zip');
+            $table->string('country');
+
+            $table->string('producto');
+            $table->longText('info');
+            $table->double('precio');
             $table->timestamps();
         });
     }
