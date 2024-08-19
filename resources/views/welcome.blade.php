@@ -22,6 +22,9 @@
             width: 100%;
             height: 100%;
         }
+        /* .separador {
+            border-bottom: 0.05px solid #C0C0C0;
+        } */
     </style>
 </head>
 <body class="bg-[#0b0b0b] text-white">
@@ -38,76 +41,12 @@
             <svg xmlns="http://www.w3.org/2000/svg" id="phone-close-nav" class="w-6 hidden" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="#c0c0c0" d="M464 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-83.6 290.5c4.8 4.8 4.8 12.6 0 17.4l-40.5 40.5c-4.8 4.8-12.6 4.8-17.4 0L256 313.3l-66.5 67.1c-4.8 4.8-12.6 4.8-17.4 0l-40.5-40.5c-4.8-4.8-4.8-12.6 0-17.4l67.1-66.5-67.1-66.5c-4.8-4.8-4.8-12.6 0-17.4l40.5-40.5c4.8-4.8 12.6-4.8 17.4 0l66.5 67.1 66.5-67.1c4.8-4.8 12.6-4.8 17.4 0l40.5 40.5c4.8 4.8 4.8 12.6 0 17.4L313.3 256l67.1 66.5z"/></svg>
         </button>
         <ul class="flex space-x-4 uppercase hidden md:flex" id="menu">
-            <li><a href="#about" class="hover:text-gray-300 caldea-regular tracking-widest">About</a></li>
             <li><a href="#gallery" class="hover:text-gray-300 caldea-regular tracking-widest">Gallery</a></li>
+            <li><a href="#about" class="hover:text-gray-300 caldea-regular tracking-widest">About</a></li>
             <li><a href="#contact" class="hover:text-gray-300 caldea-regular tracking-widest">Contact</a></li>
         </ul>
     </nav>
-    <!-- Header -->
-    <section id="home">
-        <header class="h-screen bg-cover bg-center" style="background-image: url('{{ asset('css/images/bg-header.jpg') }}')">
-            <div class="flex items-center justify-center h-full">
-                <h1 data-aos="zoom-in" data-aos-duration="1500" class="text-center md:text-left text-6xl font-bold text-shadow-lg -mt-20 caldea-bold uppercase" style="letter-spacing: 10px;">
-                    Art through my eyes
-                </h1>
-            </div>
-        </header>
-    </section>
 
-    <!-- Section 1: About -->
-    <section id="about" class="py-8 px-4">
-        <h2 class="text-4xl font-bold text-center my-10 caldea-bold-italic uppercase" data-aos="zoom-right">About me</h2>
-        <!-- Photo 1: left, Text 1: right -->
-        <div class="flex flex-wrap md:flex-nowrap items-center justify-center mb-4">
-            <div class="w-full md:w-1/2 p-2">
-                <img src="{{ asset('css/images/about1.jpg') }}" alt="About 1" class="w-full md:w-[50%] mx-auto align-top rounded-lg shadow-lg">
-            </div>
-            <div class="w-full md:w-1/2 p-2 md:mr-10" data-aos="fade-right">
-                <!-- <h1 class="text-2xl tracking-wider play-medium-italic mb-4">Me</h1> -->
-                <p class="text-lg text-justify caldea-regular my-2">
-                    I specialize in creating bold and beautiful abstract paintings. As a Mexican woman, my artistic inclination stems from my father, who is a potter from Juan Mata Ortiz in Chihuahua, Mexico—a town known for its talented clay potters. Growing up, I was surrounded by a community of artists, and witnessing their creativity in various forms inspired me greatly.
-                </p>
-                <p class="text-lg text-justify caldea-regular my-2">
-                    It was during the year when the world came to a halt due to the virus that I felt an overwhelming need to express myself. Painting became my chosen medium for this purpose, even though it initially intimidated me. Despite my love for drawing, painting seemed more daunting. However, as I embraced this art form, it gradually became an integral part of who I am.
-                </p>
-                <p class="text-lg text-justify caldea-regular my-2">
-                    I hope you enjoy following my artistic journey and find inspiration to pursue your own dreams. 
-                </p>
-                <p class="text-lg text-justify caldea-italic my-2">
-                    Thank you for visiting my little art dream!
-                </p>
-            </div>
-        </div>
-        <!-- Photo 2: right, Text 2: left -->
-        <div class="flex flex-wrap md:flex-nowrap items-center justify-center mb-4">
-            <div class="w-full md:w-1/2 p-2 order-last md:order-first md:ml-10" data-aos="fade-right">
-                <h1 class="caldea-italic text-2xl mb-4">What kind of art do you do and why?</h1>
-                <p class="text-lg text-justify caldea-regular my-2">
-                    Wholeheartedly dedicate myself to the world of abstract art, particularly working with acrylics and various mixed media. What I adore about abstract art is its ability to unleash my creativity and imagination. I find inspiration in the realm of emotions, dreams, and the beauty of nature.
-                </p>
-                <p class="text-lg text-justify caldea-regular my-2">
-                    One of my favorite aspects of creating abstract art is incorporating gold accents and textures that captivate the viewer's gaze. These elements add a touch of allure and intrigue to my pieces. It's a joy for me to experiment with different techniques and materials to bring my artistic vision to life.
-                </p>
-            </div>
-            <div class="w-full md:w-1/2 p-2 order-first md:order-last">
-                <img src="{{ asset('css/images/about2.jpg') }}" alt="About 2" class="w-full md:w-[50%] mx-auto align-top rounded-lg shadow-lg">
-            </div>
-        </div>
-        <!-- Photo 3: left, Text 3: right -->
-        <div class="flex flex-wrap md:flex-nowrap items-center justify-center mb-4">
-            <div class="w-full md:w-1/2 p-2">
-                <img src="{{ asset('css/images/about3x.jpg') }}" alt="About 3" class="w-full md:w-[50%] mx-auto align-top rounded-lg shadow-lg">
-            </div>
-            <div class="w-full md:w-1/2 p-2 md:mr-10" data-aos="fade-right">
-                {{-- <h1 class="text-2xl caldea-italic mb-4">What sets you apart from other artists?</h1> --}}
-                <p class="text-lg text-justify caldea-regular">
-                    I am an artist passionate about art and creativity. I dedicate myself to creating unique and original works of art, using different techniques and materials. My goal is to express my vision of the world through art and share it with the public.
-                </p>
-            </div>
-        </div>
-    </section>
-      
-      
     <!-- Section 2: Gallery -->
     <section id="gallery" class="py-8 px-4 bg-[#C0C0C0]">
         <h2 class="text-4xl font-bold text-center text-white my-10 caldea-bold-italic uppercase" data-aos="fade-in">Gallery</h2>
@@ -125,6 +64,70 @@
             @endforeach
         </div>
         {{-- <p class="text-lg text-center caldea-italic mt-12 mb-8 underline">Store</p> --}}
+    </section>
+
+    <!-- Section 1: About -->
+    <section id="about" class="py-8 px-4 separador">
+        <h2 class="text-4xl font-bold text-center my-10 caldea-bold-italic uppercase" data-aos="zoom-right">About me</h2>
+        <!-- Photo 1: left, Text 1: right -->
+        <div class="flex flex-wrap md:flex-nowrap items-center justify-center mb-4">
+            <div class="w-full md:w-1/2 p-2">
+                <img src="{{ asset('css/images/about1.jpg') }}" alt="About 1" class="w-full md:w-[50%] mx-auto align-top rounded-lg shadow-lg">
+            </div>
+            <div class="w-full md:w-1/2 p-2 md:mr-10" data-aos="fade-right">
+                <!-- <h1 class="text-2xl tracking-wider play-medium-italic mb-4">Me</h1> -->
+                <p class="text-lg text-justify tracking-tight caldea-regular my-2">
+                    I specialize in creating bold and beautiful abstract paintings. As a Mexican woman, my artistic inclination stems from my father, who is a potter from Juan Mata Ortiz in Chihuahua, Mexico—a town known for its talented clay potters. Growing up, I was surrounded by a community of artists, and witnessing their creativity in various forms inspired me greatly.
+                </p>
+                <p class="text-lg text-justify tracking-tight caldea-regular my-2">
+                    It was during the year when the world came to a halt due to the virus that I felt an overwhelming need to express myself. Painting became my chosen medium for this purpose, even though it initially intimidated me. Despite my love for drawing, painting seemed more daunting. However, as I embraced this art form, it gradually became an integral part of who I am.
+                </p>
+                <p class="text-lg text-justify tracking-tight caldea-regular my-2">
+                    I hope you enjoy following my artistic journey and find inspiration to pursue your own dreams. 
+                </p>
+                <p class="text-lg text-justify tracking-tight caldea-italic my-2">
+                    Thank you for visiting my little art dream!
+                </p>
+            </div>
+        </div>
+        <!-- Photo 2: right, Text 2: left -->
+        <div class="flex flex-wrap md:flex-nowrap items-center justify-center mb-4">
+            <div class="w-full md:w-1/2 p-2 order-last md:order-first md:ml-10" data-aos="fade-right">
+                <h1 class="caldea-italic text-2xl mb-4">What kind of art do you do and why?</h1>
+                <p class="text-lg text-justify tracking-tight caldea-regular my-2">
+                    Wholeheartedly dedicate myself to the world of abstract art, particularly working with acrylics and various mixed media. What I adore about abstract art is its ability to unleash my creativity and imagination. I find inspiration in the realm of emotions, dreams, and the beauty of nature.
+                </p>
+                <p class="text-lg text-justify tracking-tight caldea-regular my-2">
+                    One of my favorite aspects of creating abstract art is incorporating gold accents and textures that captivate the viewer's gaze. These elements add a touch of allure and intrigue to my pieces. It's a joy for me to experiment with different techniques and materials to bring my artistic vision to life.
+                </p>
+            </div>
+            <div class="w-full md:w-1/2 p-2 order-first md:order-last">
+                <img src="{{ asset('css/images/about2.jpg') }}" alt="About 2" class="w-full md:w-[50%] mx-auto align-top rounded-lg shadow-lg">
+            </div>
+        </div>
+        <!-- Photo 3: left, Text 3: right -->
+        <div class="flex flex-wrap md:flex-nowrap items-center justify-center mb-4">
+            <div class="w-full md:w-1/2 p-2">
+                <img src="{{ asset('css/images/about3x.jpg') }}" alt="About 3" class="w-full md:w-[50%] mx-auto align-top rounded-lg shadow-lg">
+            </div>
+            <div class="w-full md:w-1/2 p-2 md:mr-10" data-aos="fade-right">
+                {{-- <h1 class="text-2xl caldea-italic mb-4">What sets you apart from other artists?</h1> --}}
+                <p class="text-lg text-justify tracking-tight caldea-regular">
+                    I am an artist passionate about art and creativity. I dedicate myself to creating unique and original works of art, using different techniques and materials. My goal is to express my vision of the world through art and share it with the public.
+                </p>
+            </div>
+        </div>
+    </section>
+      
+
+    <section id="home">
+        <header class="h-screen bg-cover bg-center" style="background-image: url('{{ asset('css/images/bg-header.jpg') }}')">
+            <div class="flex items-center justify-center h-full">
+                <h1 data-aos="zoom-in" data-aos-duration="1500" class="text-center md:text-left text-6xl font-bold text-shadow-lg -mt-20 caldea-bold uppercase" style="letter-spacing: 10px;">
+                    Art through my eyes
+                </h1>
+            </div>
+        </header>
     </section>
 
     <!-- Section 3: Contact -->
@@ -277,7 +280,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="{{ asset('js/sticky.js') }}"></script>
     <script src="{{ asset('js/sections.js') }}"></script>
-    <script src="https://www.paypal.com/sdk/js?client-id=AZ_QYjxwDeH-7P74JrQVytETOemd2Cxsod3Nqkws8y5LUb039B-A8z6vITnJqcfg9w4xv_GJcp_cRTIf&components=buttons,applepay,googlepay" data-sdk-integration-source="integrationbuilder_sc"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id={{ ENV('PAYPAL_CLIENT_ID') }}&components=buttons,applepay,googlepay" data-sdk-integration-source="integrationbuilder_sc"></script>
     <script>
         let actualItemId    =   null;
         window.paypal
