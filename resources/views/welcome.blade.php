@@ -76,13 +76,13 @@
             </div>
             <div class="w-full md:w-1/2 p-2 md:mr-10" data-aos="fade-right">
                 <!-- <h1 class="text-2xl tracking-wider play-medium-italic mb-4">Me</h1> -->
-                <p class="text-lg text-justify tracking-tight caldea-regular my-2">
+                <p class="text-lg text-justify my-2">
                     I specialize in creating bold and beautiful abstract paintings. As a Mexican woman, my artistic inclination stems from my father, who is a potter from Juan Mata Ortiz in Chihuahua, Mexico—a town known for its talented clay potters. Growing up, I was surrounded by a community of artists, and witnessing their creativity in various forms inspired me greatly.
                 </p>
-                <p class="text-lg text-justify tracking-tight caldea-regular my-2">
+                <p class="text-lg text-justify my-2">
                     It was during the year when the world came to a halt due to the virus that I felt an overwhelming need to express myself. Painting became my chosen medium for this purpose, even though it initially intimidated me. Despite my love for drawing, painting seemed more daunting. However, as I embraced this art form, it gradually became an integral part of who I am.
                 </p>
-                <p class="text-lg text-justify tracking-tight caldea-regular my-2">
+                <p class="text-lg text-justify my-2">
                     I hope you enjoy following my artistic journey and find inspiration to pursue your own dreams. 
                 </p>
                 <p class="text-lg text-justify tracking-tight caldea-italic my-2">
@@ -94,10 +94,10 @@
         <div class="flex flex-wrap md:flex-nowrap items-center justify-center mb-4">
             <div class="w-full md:w-1/2 p-2 order-last md:order-first md:ml-10" data-aos="fade-right">
                 <h1 class="caldea-italic text-2xl mb-4">What kind of art do you do and why?</h1>
-                <p class="text-lg text-justify tracking-tight caldea-regular my-2">
+                <p class="text-lg text-justify my-2">
                     Wholeheartedly dedicate myself to the world of abstract art, particularly working with acrylics and various mixed media. What I adore about abstract art is its ability to unleash my creativity and imagination. I find inspiration in the realm of emotions, dreams, and the beauty of nature.
                 </p>
-                <p class="text-lg text-justify tracking-tight caldea-regular my-2">
+                <p class="text-lg text-justify my-2">
                     One of my favorite aspects of creating abstract art is incorporating gold accents and textures that captivate the viewer's gaze. These elements add a touch of allure and intrigue to my pieces. It's a joy for me to experiment with different techniques and materials to bring my artistic vision to life.
                 </p>
             </div>
@@ -112,7 +112,7 @@
             </div>
             <div class="w-full md:w-1/2 p-2 md:mr-10" data-aos="fade-right">
                 {{-- <h1 class="text-2xl caldea-italic mb-4">What sets you apart from other artists?</h1> --}}
-                <p class="text-lg text-justify tracking-tight caldea-regular">
+                <p class="text-lg text-justify">
                     I am an artist passionate about art and creativity. I dedicate myself to creating unique and original works of art, using different techniques and materials. My goal is to express my vision of the world through art and share it with the public.
                 </p>
             </div>
@@ -137,14 +137,8 @@
         <div class="flex flex-wrap justify-center">
             <div class="w-full md:w-1/2 lg:w-1/3 p-2">
                 <div class="flex items-center space-x-2 bg-gray-800 p-4 rounded-lg shadow-lg" data-aos="fade-right">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6" viewBox="0 0 512 512"><path fill="#c0c0c0" d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
-                    <a href="tel:+17139029816"><span class="text-xl caldea-regular tracking-wider">+1 (713) 902-9816</span></a>
-                </div>
-            </div>
-            <div class="w-full md:w-1/2 lg:w-1/3 p-2">
-                <div class="flex items-center space-x-2 bg-gray-800 p-4 rounded-lg shadow-lg" data-aos="fade-right">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6" viewBox="0 0 512 512"><path fill="#c0c0c0" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
-                    <a href="mailto:janethd24@gmail.com"><span class="text-xl caldea-regular tracking-wider">janethd24@gmail.com</span></a>
+                    <a href="mailto:janethart@gmail.com"><span class="text-xl caldea-regular tracking-wider">janethart@gmail.com</span></a>
                 </div>
             </div>
         </div>
