@@ -76,13 +76,13 @@
             </div>
             <div class="w-full md:w-1/2 p-2 md:mr-10" data-aos="fade-right">
                 <!-- <h1 class="text-2xl tracking-wider play-medium-italic mb-4">Me</h1> -->
-                <p class="text-lg text-justify my-2" style="word-spacing:-1.5px;" >
+                <p class="text-lg text-justify my-2 caldea-regular" style="word-spacing:-1.5px;" >
                     I specialize in creating bold and beautiful abstract paintings. As a Mexican woman, my artistic inclination stems from my father, who is a potter from Juan Mata Ortiz in Chihuahua, Mexico—a town known for its talented clay potters. Growing up, I was surrounded by a community of artists, and witnessing their creativity in various forms inspired me greatly.
                 </p>
-                <p class="text-lg text-justify my-2" style="word-spacing:-1.5px;" >
+                <p class="text-lg text-justify my-2 caldea-regular" style="word-spacing:-1.5px;" >
                     It was during the year when the world came to a halt due to the virus that I felt an overwhelming need to express myself. Painting became my chosen medium for this purpose, even though it initially intimidated me. Despite my love for drawing, painting seemed more daunting. However, as I embraced this art form, it gradually became an integral part of who I am.
                 </p>
-                <p class="text-lg text-justify my-2" style="word-spacing:-1.5px;" >
+                <p class="text-lg text-justify my-2 caldea-regular" style="word-spacing:-1.5px;" >
                     I hope you enjoy following my artistic journey and find inspiration to pursue your own dreams. 
                 </p>
                 <p class="text-lg text-justify tracking-tight caldea-italic my-2" style="word-spacing:-1.5px;" >
@@ -94,10 +94,10 @@
         <div class="flex flex-wrap md:flex-nowrap items-center justify-center mb-4">
             <div class="w-full md:w-1/2 p-2 order-last md:order-first md:ml-10" data-aos="fade-right">
                 <h1 class="caldea-italic text-2xl mb-4">What kind of art do you do and why?</h1>
-                <p class="text-lg text-justify my-2" style="word-spacing:-1.5px;" >
+                <p class="text-lg text-justify my-2 caldea-regular" style="word-spacing:-1.5px;" >
                     Wholeheartedly dedicate myself to the world of abstract art, particularly working with acrylics and various mixed media. What I adore about abstract art is its ability to unleash my creativity and imagination. I find inspiration in the realm of emotions, dreams, and the beauty of nature.
                 </p>
-                <p class="text-lg text-justify my-2" style="word-spacing:-1.5px;" >
+                <p class="text-lg text-justify my-2 caldea-regular" style="word-spacing:-1.5px;" >
                     One of my favorite aspects of creating abstract art is incorporating gold accents and textures that captivate the viewer's gaze. These elements add a touch of allure and intrigue to my pieces. It's a joy for me to experiment with different techniques and materials to bring my artistic vision to life.
                 </p>
             </div>
@@ -112,7 +112,7 @@
             </div>
             <div class="w-full md:w-1/2 p-2 md:mr-10" data-aos="fade-right">
                 {{-- <h1 class="text-2xl caldea-italic mb-4">What sets you apart from other artists?</h1> --}}
-                <p class="text-lg text-justify" style="word-spacing:-1.5px;" >
+                <p class="text-lg text-justify caldea-regular" style="word-spacing:-1.5px;" >
                     I am an artist passionate about art and creativity. I dedicate myself to creating unique and original works of art, using different techniques and materials. My goal is to express my vision of the world through art and share it with the public.
                 </p>
             </div>
