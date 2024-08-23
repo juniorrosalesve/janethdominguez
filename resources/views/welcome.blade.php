@@ -67,7 +67,7 @@
     </section>
 
     <!-- Section 1: About -->
-    <section id="about" class="py-8 px-4 separador">
+    <section id="about" style="word-spacing:-1.5px;" class="py-8 px-4 separador">
         <h2 class="text-4xl font-bold text-center my-10 caldea-bold-italic uppercase" data-aos="zoom-right">About me</h2>
         <!-- Photo 1: left, Text 1: right -->
         <div class="flex flex-wrap md:flex-nowrap items-center justify-center mb-4">
