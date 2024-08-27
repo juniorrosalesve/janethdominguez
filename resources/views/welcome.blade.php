@@ -76,16 +76,16 @@
             </div>
             <div class="w-full md:w-1/2 p-2 md:mr-10" data-aos="fade-right">
                 <!-- <h1 class="text-2xl tracking-wider play-medium-italic mb-4">Me</h1> -->
-                <p class="text-lg text-justify my-2 caldea-regular" style="word-spacing:-1.5px;" >
+                <p class="text-lg my-2 caldea-regular" style="word-spacing:-1.5px;" >
                     I specialize in creating bold and beautiful abstract paintings. As a Mexican woman, my artistic inclination stems from my father, who is a potter from Juan Mata Ortiz in Chihuahua, Mexico—a town known for its talented clay potters. Growing up, I was surrounded by a community of artists, and witnessing their creativity in various forms inspired me greatly.
                 </p>
-                <p class="text-lg text-justify my-2 caldea-regular" style="word-spacing:-1.5px;" >
+                <p class="text-lg my-2 caldea-regular" style="word-spacing:-1.5px;" >
                     It was during the year when the world came to a halt due to the virus that I felt an overwhelming need to express myself. Painting became my chosen medium for this purpose, even though it initially intimidated me. Despite my love for drawing, painting seemed more daunting. However, as I embraced this art form, it gradually became an integral part of who I am.
                 </p>
-                <p class="text-lg text-justify my-2 caldea-regular" style="word-spacing:-1.5px;" >
+                <p class="text-lg my-2 caldea-regular" style="word-spacing:-1.5px;" >
                     I hope you enjoy following my artistic journey and find inspiration to pursue your own dreams. 
                 </p>
-                <p class="text-lg text-justify tracking-tight caldea-italic my-2" style="word-spacing:-1.5px;" >
+                <p class="text-lg tracking-tight caldea-italic my-2" style="word-spacing:-1.5px;" >
                     Thank you for visiting my little art dream!
                 </p>
             </div>
@@ -94,10 +94,10 @@
         <div class="flex flex-wrap md:flex-nowrap items-center justify-center mb-4">
             <div class="w-full md:w-1/2 p-2 order-last md:order-first md:ml-10" data-aos="fade-right">
                 <h1 class="caldea-italic text-2xl mb-4">What kind of art do you do and why?</h1>
-                <p class="text-lg text-justify my-2 caldea-regular" style="word-spacing:-1.5px;" >
+                <p class="text-lg my-2 caldea-regular" style="word-spacing:-1.5px;" >
                     Wholeheartedly dedicate myself to the world of abstract art, particularly working with acrylics and various mixed media. What I adore about abstract art is its ability to unleash my creativity and imagination. I find inspiration in the realm of emotions, dreams, and the beauty of nature.
                 </p>
-                <p class="text-lg text-justify my-2 caldea-regular" style="word-spacing:-1.5px;" >
+                <p class="text-lg my-2 caldea-regular" style="word-spacing:-1.5px;" >
                     One of my favorite aspects of creating abstract art is incorporating gold accents and textures that captivate the viewer's gaze. These elements add a touch of allure and intrigue to my pieces. It's a joy for me to experiment with different techniques and materials to bring my artistic vision to life.
                 </p>
             </div>
@@ -112,7 +112,7 @@
             </div>
             <div class="w-full md:w-1/2 p-2 md:mr-10" data-aos="fade-right">
                 {{-- <h1 class="text-2xl caldea-italic mb-4">What sets you apart from other artists?</h1> --}}
-                <p class="text-lg text-justify caldea-regular" style="word-spacing:-1.5px;" >
+                <p class="text-lg caldea-regular" style="word-spacing:-1.5px;" >
                     I am an artist passionate about art and creativity. I dedicate myself to creating unique and original works of art, using different techniques and materials. My goal is to express my vision of the world through art and share it with the public.
                 </p>
             </div>
@@ -211,7 +211,7 @@
                                         <p class="caldea-bold text-2xl mt-7" id="x_item_price">...</p>
                                         <form class="space-y-4 p-4" method="POST" action="#">
                                             @csrf
-                                            <h1 class="">Shipping and Buy</h1>
+                                            <h1 class="">Shipping info</h1>
                                             <div class="flex flex-wrap -mx-2 space-y-4 md:space-y-0">
                                                 <div class="w-full px-2 md:w-1/2">
                                                     <label for="fullName" class="block text-sm font-medium text-gray-700">Full name</label>
@@ -254,6 +254,7 @@
                                         </form>
                                         <div class="w-full md:w-[50%] mt-4">
                                             <div id="paypal-button-container"></div>
+                                            <div id="apple-pay-button-container"></div>                                            
                                         </div>
                                     </div>
                                 </div>
@@ -274,7 +275,8 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="{{ asset('js/sticky.js') }}"></script>
     <script src="{{ asset('js/sections.js') }}"></script>
-    <script src="https://www.paypal.com/sdk/js?client-id={{ ENV('PAYPAL_CLIENT_ID') }}&components=buttons,applepay,googlepay" data-sdk-integration-source="integrationbuilder_sc"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AZ_QYjxwDeH-7P74JrQVytETOemd2Cxsod3Nqkws8y5LUb039B-A8z6vITnJqcfg9w4xv_GJcp_cRTIf&components=buttons,applepay,googlepay"></script>
+
     <script>
         let actualItemId    =   null;
         window.paypal
@@ -425,6 +427,130 @@
                 },
             })
             .render("#paypal-button-container");
+
+            window.paypal.Buttons({
+                fundingSource: paypal.FUNDING.APPLEPAY,
+                style: {
+                    shape: 'rect',
+                    layout: 'vertical',
+                },
+                async createOrder() {
+                    try {
+                        if (actualItemId == null) return;
+
+                        const fullName = document.getElementById('fullName').value;
+                        const phone = document.getElementById('phone').value;
+                        const address = document.getElementById('address').value;
+                        const city = document.getElementById('city').value;
+                        const state = document.getElementById('state').value;
+                        const zip = document.getElementById('zip').value;
+                        const country = document.getElementById('country').value;
+
+                        const shipping = {
+                            fullName,
+                            phone,
+                            address,
+                            city,
+                            state,
+                            zip,
+                            country,
+                        };
+                        const response = await fetch("{{ ENV('PAYPAL_ENDPOINT') }}/api/orders", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({
+                                cart: [{
+                                    id: actualItemId,
+                                    quantity: "1",
+                                }],
+                                shipping
+                            }),
+                        });
+
+                        const orderData = await response.json();
+                        if (orderData.id) {
+                            return orderData.id;
+                        } else {
+                            const errorDetail = orderData?.details?.[0];
+                            const errorMessage = errorDetail ?
+                                `${errorDetail.issue} ${errorDetail.description} (${orderData.debug_id})` :
+                                JSON.stringify(orderData);
+
+                            throw new Error(errorMessage);
+                        }
+                    } catch (error) {
+                        console.error(error);
+                        resultMessage(`Could not initiate PayPal Checkout...`);
+                    }
+                },
+                async onApprove(data, actions) {
+                    try {
+                        const { orderID } = data;
+                        const response = await fetch(`{{ ENV('PAYPAL_ENDPOINT') }}/api/orders/${data.orderID}/capture`, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                        });
+
+                        const orderData = await response.json();
+                        const errorDetail = orderData?.details?.[0];
+
+                        if (errorDetail?.issue === "INSTRUMENT_DECLINED") {
+                            return actions.restart();
+                        } else if (errorDetail) {
+                            throw new Error(`${errorDetail.description} (${orderData.debug_id})`);
+                        } else if (!orderData.purchase_units) {
+                            throw new Error(JSON.stringify(orderData));
+                        } else {
+                            const fullName = document.getElementById('fullName').value;
+                            const phone = document.getElementById('phone').value;
+                            const address = document.getElementById('address').value;
+                            const city = document.getElementById('city').value;
+                            const state = document.getElementById('state').value;
+                            const zip = document.getElementById('zip').value;
+                            const country = document.getElementById('country').value;
+
+                            const shipping = {
+                                fullName,
+                                phone,
+                                address,
+                                city,
+                                state,
+                                zip,
+                                country,
+                            };
+                            const transaction =
+                                orderData?.purchase_units?.[0]?.payments?.captures?.[0] ||
+                                orderData?.purchase_units?.[0]?.payments?.authorizations?.[0];
+                            resultMessage(
+                                `Transaction ${transaction.status}: ${transaction.id}<br><br>See console for all available details`,
+                            );
+                            const registerResponse = await fetch(`{{ route('register-payment') }}`, {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                },
+                                body: JSON.stringify({
+                                    transaction: transaction,
+                                    shipping: shipping,
+                                    itemId: actualItemId
+                                }),
+                            });
+                            if (registerResponse) {
+                                const responseBody = await registerResponse.json();
+                                console.log(responseBody);
+                            }
+                        }
+                    } catch (error) {
+                        console.error(error);
+                        resultMessage(`Sorry, your transaction could not be processed...`);
+                    }
+                },
+            }).render("#apple-pay-button-container");
+
 
         // Example function to show a result to the user. Your site's UI library can be used instead.
         function resultMessage(message) {
