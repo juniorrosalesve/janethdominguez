@@ -275,7 +275,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="{{ asset('js/sticky.js') }}"></script>
     <script src="{{ asset('js/sections.js') }}"></script>
-    <script src="https://www.paypal.com/sdk/js?client-id=AZ_QYjxwDeH-7P74JrQVytETOemd2Cxsod3Nqkws8y5LUb039B-A8z6vITnJqcfg9w4xv_GJcp_cRTIf&components=buttons,applepay,googlepay"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_CLIENT_ID') }}&components=buttons,applepay,googlepay"></script>
 
     <script>
         let actualItemId    =   null;
